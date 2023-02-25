@@ -12,9 +12,10 @@ export default function Jogo(props){
         renderizarUnderline()
     }
     function renderizarUnderline(){
-        for(let i= 0; i < letrasDoJogo.length; i++){
+        for(let i= 0; i < props.palavraDoJogo.length; i++){
             props.setUnderline([...props.underline, traco])
         }
+        console.log(props.underline);
     }
     return (
         <>
