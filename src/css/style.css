@@ -35,3 +35,11 @@ button{
     height: 40px;
     margin: 12px;
 }
+.flex{
+    height: 402px;
+    width: 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 50px;
+}
