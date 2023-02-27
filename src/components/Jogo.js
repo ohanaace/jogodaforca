@@ -1,30 +1,24 @@
 import React from 'react';
-import {palavras} from '../palavras.js';
+
 
 export default function Jogo(props){
     const letrasDoJogo = props.palavraDoJogo.split('');
-    const traco = " _ "
     function iniciarJogo(){
-        props.setPalavraDoJogo(palavras[Math.floor(Math.random() * palavras.length)]);
+        props.setPalavraDoJogo(props.palavra[Math.floor(Math.random() * props.palavra.length)]);
+        props.setPalavraOculta(props.palavraDoJogo.replace(/\w/g, "_"))
         props.setDisabled(false);
-        console.log(letrasDoJogo);
-        //console.log(props.underline)
-        renderizarUnderline()
     }
-    function renderizarUnderline(){
-        for(let i= 0; i < props.palavraDoJogo.length; i++){
-            props.setUnderline([...props.underline, traco])
-        }
-        console.log(props.underline);
-    }
+
     return (
         <>
             <div className="Jogo">
                 <img src={props.forca} alt="forca" data-test="game-image"/>
                 <div className="flex">
                     <button className="start" data-test="choose-word" onClick={()=> iniciarJogo()}>Escolher palavra</button>
-                    <p>{props.underline}</p>
-                </div>
+                   {letrasDoJogo.map((letra, index) => (
+                    <span data-test="word" key={index}>{props.palpiteDoJogo.includes(letra)? letra : "_"}
+                    </span>))}
+                 </div>
             </div>
         </>
     )
