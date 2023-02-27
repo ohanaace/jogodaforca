@@ -10,7 +10,7 @@ import forca5 from './assets/forca5.png';
 import forca6 from './assets/forca6.png';
 import Jogo from './components/Jogo.js';
 import Letras from './components/Letras.js'
-import {palavras} from './palavras.js';
+import palavras from './palavras.js';
 
 function App() {
   const [palavraDoJogo, setPalavraDoJogo] = React.useState('');
